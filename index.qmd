@@ -1,0 +1,250 @@
+---
+format:
+  revealjs:
+    transition: fade
+    theme: night
+---
+
+# {background-image="images/julia-joppien-XFUqd0u5U7w-unsplash.jpg"}
+
+::: {.notes}
+I'm David Aja, a member of the SE team at RStudio.
+I help data scientists get their ideas into production.
+I see a lot of broken things.
+So that's why today I'll be talking about:
+:::
+
+# {background-image="images/julia-joppien-XFUqd0u5U7w-unsplash.jpg"}
+
+:::: {.columns}
+
+::: {.column width="30%"} 
+:::{.r-fit-text color="white"}
+You <br/>
+should <br/>
+use <br/>
+renv.
+:::
+:::
+
+:::{.column width="70%"}
+:::
+::::
+
+::: {.fragment}
+(probably.)
+:::
+
+# agenda
+
+:::: {.columns}
+
+::: {.column width="40%"}
+::: {.r-fit-text .fragment}
+why
+:::
+:::
+
+::: {.column width="20%"}
+:::
+
+
+::: {.column width="40%"}
+::: {.r-fit-text .fragment}
+how
+:::
+:::
+
+::::
+
+
+# why
+
+## what is a project?
+
+::: {.fragment .fade-in}
+> _an individual or collaborative enterprise that is carefully planned to achieve a particular aim._
+>
+> -- Oxford Languages
+:::
+
+## what is a project?
+
+::: {.fragment .fade-in .r-fit-text}
+a project _ships_.
+:::
+
+::: {.fragment}
+![](images/AOL_promotional_CDs_in_Canada.jpeg)
+:::
+
+## what makes a project an _R_ project?
+
+
+## ceci n'est pas un projet
+
+::: {.r-fit-text}
+*.Rproj
+:::
+
+## `*.Rproj`
+
+```
+Version: 1.0
+
+RestoreWorkspace: Default
+SaveWorkspace: Default
+AlwaysSaveHistory: Default
+
+UseSpacesForTab: Yes
+NumSpacesForTab: 2
+Encoding: UTF-8
+
+AutoAppendNewline: Yes
+StripTrailingWhitespace: Yes
+```
+
+::: {.fragment}
+You don't ship your editor to your clients.
+:::
+
+## `*.Rproj` {transition="none"}
+
+```
+Version: 1.0
+
+RestoreWorkspace: Default
+SaveWorkspace: Default
+AlwaysSaveHistory: Default
+
+UseSpacesForTab: Yes
+NumSpacesForTab: 2
+Encoding: UTF-8
+
+AutoAppendNewline: Yes
+StripTrailingWhitespace: Yes
+```
+
+You don't ship your editor to your teammates.
+
+## `*.Rproj` {transition="none"}
+
+```
+Version: 1.0
+
+RestoreWorkspace: Default
+SaveWorkspace: Default
+AlwaysSaveHistory: Default
+
+UseSpacesForTab: Yes
+NumSpacesForTab: 2
+Encoding: UTF-8
+
+AutoAppendNewline: Yes
+StripTrailingWhitespace: Yes
+```
+
+You don't ship your editor to your new laptop.
+
+:::{.notes}
+- `.Rproj` is mostly editor config
+- signifier but doesn't accomplish proejct goals
+- Some RStudio handling of configurable R behaviors, but R doesn't know that
+:::
+
+
+## `*.Rproj`
+
+**necessary**, but not sufficient
+
+# what *is* a project?
+
+::: {.notes}
+- we're increasing the diversity of things R can do and where it does them
+- behooves us to learn from other language and framework paradigms and how they think about reliably delivering product
+- 12 factor is focused on deploying web applications but many lessons translate
+:::
+
+## 12 factor 
+
+>  No matter what the toolchain, dependency declaration and isolation must always be used together – only one or the other is not sufficient to satisfy twelve-factor.
+
+## cookiecutter data science
+
+> The first step in reproducing an analysis is always reproducing the computational environment it was run in. 
+> You need the same tools, 
+> the **same libraries**, 
+> and the **same versions** to make everything play nicely together.
+
+::: {.notes}
+reproducibility doesn't have to be binary or all-encompassing
+reiterating the previous--an analysis that's only runnable on your machine is not as helpful as one that other people can access
+:::
+
+
+# how
+
+headings as isolate? and enumerate?
+more definition context?
+
+## `renv::init()`
+
+- creates isolated library
+- discovers and installs dependencies from your code
+
+## `install.packages()`
+
+## `renv::status()`
+
+## `renv::snapshot()`
+
+`renv.lock`
+```json
+{
+  "R": {
+    "Version": "4.1.1",
+    "Repositories": [
+      {
+        "Name": "CRAN",
+        "URL": "https://cran.rstudio.com"
+      }
+    ]
+  },
+  "Packages": {
+    "DBI": {
+      "Package": "DBI",
+      "Version": "1.1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "030aaec5bc6553f35347cbb1e70b1a17"
+    },
+    ...
+  }
+}
+```
+
+## `renv::restore()`
+# other patterns
+
+## `renv::use()`
+
+## the junk drawer
+
+:::{.r-fit-text}
+`~/Documents/scratch`
+:::
+
+
+
+# questions
+
+## what about `pak`?
+
+::: {.r-fit-text}
+`RENV_CONFIG_PAK_ENABLED=TRUE`
+:::
+
+## are packages projects?
+
+
+
