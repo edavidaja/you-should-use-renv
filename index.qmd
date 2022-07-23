@@ -5,40 +5,35 @@ format:
     theme: night
 ---
 
-# {background-image="images/julia-joppien-XFUqd0u5U7w-unsplash.jpg"}
+#  {background-image="images/julia-joppien-XFUqd0u5U7w-unsplash.jpg"}
 
-::: {.notes}
-I'm David Aja, a member of the SE team at RStudio.
-I help data scientists get their ideas into production.
-I see a lot of broken things.
+::: notes
+I'm David Aja, a member of the SE team at RStudio.  
+I help data scientists get their ideas into production.  
+I see a lot of broken things.  
 So that's why today I'll be talking about:
 :::
 
-# {background-image="images/julia-joppien-XFUqd0u5U7w-unsplash.jpg"}
+#  {background-image="images/julia-joppien-XFUqd0u5U7w-unsplash.jpg"}
 
-:::: {.columns}
-
-::: {.column width="30%"} 
-:::{.r-fit-text color="white"}
-You <br/>
-should <br/>
-use <br/>
-renv.
+::: columns
+::: {.column width="30%"}
+::: {.r-fit-text color="white"}
+You <br/> should <br/> use <br/> renv.
 :::
 :::
 
-:::{.column width="70%"}
+::: {.column width="70%"}
 :::
-::::
+:::
 
-::: {.fragment}
+::: fragment
 (probably.)
 :::
 
 # agenda
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="40%"}
 ::: {.r-fit-text .fragment}
 why
@@ -48,22 +43,25 @@ why
 ::: {.column width="20%"}
 :::
 
-
 ::: {.column width="40%"}
 ::: {.r-fit-text .fragment}
 how
 :::
 :::
-
-::::
-
+:::
 
 # why
+
+## we have a standards problem
+
+::: fragment
+what makes a project an *R* project?
+:::
 
 ## what is a project?
 
 ::: {.fragment .fade-in}
-> _an individual or collaborative enterprise that is carefully planned to achieve a particular aim._
+> *an individual or collaborative enterprise that is carefully planned to achieve a particular aim.*
 >
 > -- Oxford Languages
 :::
@@ -71,87 +69,79 @@ how
 ## what is a project?
 
 ::: {.fragment .fade-in .r-fit-text}
-a project _ships_.
+a project *ships*.
 :::
 
-::: {.fragment}
+::: fragment
 ![](images/AOL_promotional_CDs_in_Canada.jpeg)
 :::
 
-## what makes a project an _R_ project?
-
+## I thought this guy works at RStudio
 
 ## ceci n'est pas un projet
 
-::: {.r-fit-text}
-*.Rproj
+::: r-fit-text
+\*.Rproj
 :::
 
 ## `*.Rproj`
 
-```
-Version: 1.0
+    Version: 1.0
 
-RestoreWorkspace: Default
-SaveWorkspace: Default
-AlwaysSaveHistory: Default
+    RestoreWorkspace: Default
+    SaveWorkspace: Default
+    AlwaysSaveHistory: Default
 
-UseSpacesForTab: Yes
-NumSpacesForTab: 2
-Encoding: UTF-8
+    UseSpacesForTab: Yes
+    NumSpacesForTab: 2
+    Encoding: UTF-8
 
-AutoAppendNewline: Yes
-StripTrailingWhitespace: Yes
-```
+    AutoAppendNewline: Yes
+    StripTrailingWhitespace: Yes
 
-::: {.fragment}
+::: fragment
 You don't ship your editor to your clients.
 :::
 
 ## `*.Rproj` {transition="none"}
 
-```
-Version: 1.0
+    Version: 1.0
 
-RestoreWorkspace: Default
-SaveWorkspace: Default
-AlwaysSaveHistory: Default
+    RestoreWorkspace: Default
+    SaveWorkspace: Default
+    AlwaysSaveHistory: Default
 
-UseSpacesForTab: Yes
-NumSpacesForTab: 2
-Encoding: UTF-8
+    UseSpacesForTab: Yes
+    NumSpacesForTab: 2
+    Encoding: UTF-8
 
-AutoAppendNewline: Yes
-StripTrailingWhitespace: Yes
-```
+    AutoAppendNewline: Yes
+    StripTrailingWhitespace: Yes
 
 You don't ship your editor to your teammates.
 
 ## `*.Rproj` {transition="none"}
 
-```
-Version: 1.0
+    Version: 1.0
 
-RestoreWorkspace: Default
-SaveWorkspace: Default
-AlwaysSaveHistory: Default
+    RestoreWorkspace: Default
+    SaveWorkspace: Default
+    AlwaysSaveHistory: Default
 
-UseSpacesForTab: Yes
-NumSpacesForTab: 2
-Encoding: UTF-8
+    UseSpacesForTab: Yes
+    NumSpacesForTab: 2
+    Encoding: UTF-8
 
-AutoAppendNewline: Yes
-StripTrailingWhitespace: Yes
-```
+    AutoAppendNewline: Yes
+    StripTrailingWhitespace: Yes
 
 You don't ship your editor to your new laptop.
 
-:::{.notes}
-- `.Rproj` is mostly editor config
-- signifier but doesn't accomplish proejct goals
-- Some RStudio handling of configurable R behaviors, but R doesn't know that
+::: notes
+-   `.Rproj` is mostly editor config
+-   signifier but doesn't accomplish proejct goals
+-   Some RStudio handling of configurable R behaviors, but R doesn't know that
 :::
-
 
 ## `*.Rproj`
 
@@ -159,57 +149,84 @@ You don't ship your editor to your new laptop.
 
 # what *is* a project?
 
-::: {.notes}
-- we're increasing the diversity of things R can do and where it does them
-- behooves us to learn from other language and framework paradigms and how they think about reliably delivering product
-- 12 factor is focused on deploying web applications but many lessons translate
+::: notes
+-   we're increasing the diversity of things R can do and where it does them
+-   behooves us to learn from other language and framework paradigms and how they think about reliably delivering product
+-   12 factor is focused on deploying web applications but many lessons translate
 :::
 
-## 12 factor 
+## 12 factor
 
->  No matter what the toolchain, dependency declaration and isolation must always be used together – only one or the other is not sufficient to satisfy twelve-factor.
+> A twelve-factor app **never** relies on implicit existence of system-wide packages.
+
+::: columns
+::: {.column .fragment width="49%"}
+It declares all dependencies, completely and exactly, via a dependency declaration manifest.
+:::
+
+::: {.column .fragment width="49%" style="text-align: right;"}
+It uses a dependency isolation tool \[...\] to ensure that no implicit dependencies "leak in"
+:::
+
+:::
 
 ## cookiecutter data science
 
-> The first step in reproducing an analysis is always reproducing the computational environment it was run in. 
-> You need the same tools, 
-> the **same libraries**, 
-> and the **same versions** to make everything play nicely together.
+> The first step in reproducing an analysis is always reproducing the computational environment it was run in. You need the same tools, <br/> the **same libraries**, <br/> and the **same versions** to make everything play nicely together.
 
-::: {.notes}
-reproducibility doesn't have to be binary or all-encompassing
-reiterating the previous--an analysis that's only runnable on your machine is not as helpful as one that other people can access
+::: notes
+reproducibility doesn't have to be binary or all-encompassing reiterating the previous--an analysis that's only runnable on your machine is not as helpful as one that other people can access
 :::
-
 
 # how
 
-headings as isolate? and enumerate?
-more definition context?
+## 
+
+::: r-fit-text
+isolate.
+:::
 
 ## `renv::init()`
+or, 
 
-- creates isolated library
-- discovers and installs dependencies from your code
+![](images/paste-547A1832.png)
 
 ## `install.packages()`
 
 ## `renv::status()`
 
+```{.r}
+The following package(s) are recorded in the lockfile but not installed:
+              _
+  R6            [2.5.0]
+  Rcpp          [1.0.6]
+  askpass       [1.1]
+  base64enc     [0.1-3]
+  bslib         [0.2.4]
+  ...
+  sourcetools   [0.1.7]
+  sys           [3.4]
+  withr         [2.4.0]
+  xtable        [1.8-4]
+  yaml          [2.2.1]
+
+Use `renv::restore()` to install these packages.
+```
+
+
+## 
+
+::: r-fit-text
+enumerate.
+:::
+
 ## `renv::snapshot()`
 
 `renv.lock`
-```json
+
+``` json
 {
-  "R": {
-    "Version": "4.1.1",
-    "Repositories": [
-      {
-        "Name": "CRAN",
-        "URL": "https://cran.rstudio.com"
-      }
-    ]
-  },
+  ...
   "Packages": {
     "DBI": {
       "Package": "DBI",
@@ -223,28 +240,77 @@ more definition context?
 }
 ```
 
-## `renv::restore()`
-# other patterns
+## 
 
-## `renv::use()`
+::: {.r-fit-text .r-stack}
+regulate. ![](images/regulate.jpg){.fragment}
+:::
+
+## 
+
+`renv.lock`
+```
+  "R": {
+    "Version": "4.1.1",
+    "Repositories": [
+      {
+        "Name": "CRAN",
+        "URL": "https://cran.rstudio.com"
+      }
+    ]
+  },
+```
+
+## `renv::restore()`
+
+# other patterns
 
 ## the junk drawer
 
-:::{.r-fit-text}
+::: r-fit-text
 `~/Documents/scratch`
 :::
 
+## `renv::use()`
 
+
+# 
+
+![](https://imgs.xkcd.com/comics/standards.png)
 
 # questions
 
 ## what about `pak`?
 
-::: {.r-fit-text}
+::: r-fit-text
 `RENV_CONFIG_PAK_ENABLED=TRUE`
 :::
 
 ## are packages projects?
 
+kind of.
+https://rstudio.github.io/renv/articles/packages.html
+
+::: notes
+:::
+
+```{.r}
+library(revealjs)
+```
 
 
+## feedback:
+
+Kevin:
+make sure you call out that projects need lockfiles
+what's happening with respect to the private package library
+discuss when to call snapshot
+
+Alex:
+reverse the motivation so that it's less of an appeal to authority
+people need to be shown that it's not that hard
+
+who is this for?
+showcase horrors?
+mention cache?
+https://groundhogr.com/renv/
