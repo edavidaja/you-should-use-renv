@@ -190,10 +190,38 @@ design to not be able to lock your keys in the car
 isolate.
 :::
 
+##
+
+::: {.r .r-fit-text}
+`install.packages("renv")`
+:::
+
 ## `renv::init()`
 or, 
 
 ![](images/paste-547A1832.png)
+
+## `.libPaths()`
+
+::: r-stack
+::: {.fragment .fade-out}
+```{.r code-line-numbers="false"}
+> .libPaths()
+[1] "C:/Users/edavi/Documents/R/win-library/3.6" # user
+[2] "C:/Program Files/R/R-3.6.3/library" # system
+```
+:::
+
+::: {.fragment}
+```{.r code-line-numbers="false"}
+* Project '~/projects/sample-project' loaded. [renv 0.15.5]
+> .libPaths()
+[1] "C:/Users/edavi/Documents/projects/sample-project/renv/library/R-4.1/x86_64-w64-mingw32"
+[2] "C:/Program Files/R/R-4.1.3/library"
+```
+:::
+
+:::
 
 ## `renv::init()`
 
@@ -246,7 +274,7 @@ enumerate.
   },
 ```
 
-## `renv::snapshopt()`
+## `renv::snapshot()`
 
 ```{.json code-line-numbers="false"}
 "gitcellar": {
@@ -268,7 +296,11 @@ enumerate.
 },
 ```
 
-## `renv.lock`
+## 
+
+::: r-fit-text
+`renv.lock`
+:::
 
 is the project artifact we're looking for.
 
@@ -343,7 +375,7 @@ _ship_
 
 ## I'm purely a package developer
 
-https://rstudio.github.io/renv/articles/packages.html#isolation
+[article: isolation for package dev](https://rstudio.github.io/renv/articles/packages.html#isolation)
 
 ## we have an opportunity
 
