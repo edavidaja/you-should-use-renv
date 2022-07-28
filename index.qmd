@@ -3,6 +3,8 @@ format:
   revealjs:
     transition: fade
     theme: night
+    mermaid-format: svg
+from: markdown+emoji
 ---
 
 #  {background-image="images/julia-joppien-XFUqd0u5U7w-unsplash.jpg"}
@@ -34,20 +36,20 @@ You <br/> should <br/> use <br/> renv.
 # agenda
 
 ::: columns
-::: {.column width="40%"}
+
+::: {.column width="50%"}
 ::: {.r-fit-text .fragment}
 why
 :::
 :::
 
-::: {.column width="20%"}
-:::
 
-::: {.column width="40%"}
+::: {.column width="50%"}
 ::: {.r-fit-text .fragment}
 how
 :::
 :::
+
 :::
 
 # why
@@ -66,14 +68,21 @@ what makes a project an *R* project?
 > -- Oxford Languages
 :::
 
+::: notes
+- functional definition: a thing is what it does
+:::
+
 ## what is a project?
 
-::: {.fragment .fade-in .r-fit-text}
+::: r-stack
+::: {.fragment .fade-in .r-fit-text }
 a project *ships*.
 :::
 
-::: fragment
+::: {.fragment }
 ![](images/AOL_promotional_CDs_in_Canada.jpeg)
+:::
+
 :::
 
 ## I thought this guy works at RStudio
@@ -100,47 +109,21 @@ a project *ships*.
     StripTrailingWhitespace: Yes
 
 ::: fragment
-You don't ship your editor to your clients.
+You don't ship your editor.
 :::
 
-## `*.Rproj` {transition="none"}
+::: {.fragment .smaller style="text-align: right;"}
+:see_no_evil: I have shipped my editor.
+:::
 
-    Version: 1.0
-
-    RestoreWorkspace: Default
-    SaveWorkspace: Default
-    AlwaysSaveHistory: Default
-
-    UseSpacesForTab: Yes
-    NumSpacesForTab: 2
-    Encoding: UTF-8
-
-    AutoAppendNewline: Yes
-    StripTrailingWhitespace: Yes
-
-You don't ship your editor to your teammates.
-
-## `*.Rproj` {transition="none"}
-
-    Version: 1.0
-
-    RestoreWorkspace: Default
-    SaveWorkspace: Default
-    AlwaysSaveHistory: Default
-
-    UseSpacesForTab: Yes
-    NumSpacesForTab: 2
-    Encoding: UTF-8
-
-    AutoAppendNewline: Yes
-    StripTrailingWhitespace: Yes
-
-You don't ship your editor to your new laptop.
+<br/>
+<br/>
 
 ::: notes
 -   `.Rproj` is mostly editor config
 -   signifier but doesn't accomplish proejct goals
 -   Some RStudio handling of configurable R behaviors, but R doesn't know that
+-   I didn't get here from a history of flawless decision making.
 :::
 
 ## `*.Rproj`
@@ -170,13 +153,59 @@ It uses a dependency isolation tool \[...\] to ensure that no implicit dependenc
 
 :::
 
-## cookiecutter data science
+## leak-in
 
-> The first step in reproducing an analysis is always reproducing the computational environment it was run in. You need the same tools, <br/> the **same libraries**, <br/> and the **same versions** to make everything play nicely together.
+```{mermaid}
+%%{init: {"theme": "dark" } }%%
+graph
+L --- P1
+L(user library)
+P1(dashboard <br/> dplyr 1.0.5)
+```
 
-::: notes
-reproducibility doesn't have to be binary or all-encompassing reiterating the previous--an analysis that's only runnable on your machine is not as helpful as one that other people can access
-:::
+## leak-in
+
+```{mermaid}
+%%{init: {"theme": "dark" } }%%
+graph
+L --- P1
+L --- P2
+L(library)
+P1(dashboard <br/> dplyr 0.8.5)
+P2("windowed daily census tract stats <br/> &#129300;")
+```
+
+## 
+
+### `install_github("tidyverse/dtplyr")` {.smaller}
+
+```{mermaid}
+%%{init: {"theme": "dark" } }%%
+graph
+L --- P1
+L --- P2
+L(library)
+P1(dashboard <br/> dplyr 0.8.5)
+P2("windowed daily census tract stats <br/> tidyverse/dtplyr@main")
+```
+
+## 
+
+### `install_github("tidyverse/dtplyr")` {.smaller}
+
+```{mermaid}
+%%{init: {"theme": "dark" } }%%
+graph
+L --- P1
+L --- P2
+L(library)
+P1("dashboard <br/> <span style='color:red'>dplyr 1.0.5</span>")
+P2("windowed daily census tract stats <br/> tidyverse/dtplyr@main")
+```
+
+## panic, a haiku
+
+when do you think you <br/> want to  discover that you've <br/> broken your dashboard?
 
 # how
 
@@ -191,34 +220,60 @@ or,
 
 ![](images/paste-547A1832.png)
 
-## `install.packages()`
+## `renv::init()`
 
-## `renv::status()`
-
-```{.r}
-The following package(s) are recorded in the lockfile but not installed:
-              _
-  R6            [2.5.0]
-  Rcpp          [1.0.6]
-  askpass       [1.1]
-  base64enc     [0.1-3]
-  bslib         [0.2.4]
-  ...
-  sourcetools   [0.1.7]
-  sys           [3.4]
-  withr         [2.4.0]
-  xtable        [1.8-4]
-  yaml          [2.2.1]
-
-Use `renv::restore()` to install these packages.
+```{mermaid}
+%%{init: {"theme": "dark" } }%%
+graph
+L --- P1
+L2 --- P2
+L(library)
+L2(Library)
+P1(dashboard <br/> dplyr 0.8.5)
+P2("windowed daily census tract stats <br/> tidyverse/dtplyr@main <br/> dplyr 1.0.5")
 ```
 
+## `renv::init()`
+
+```{mermaid}
+%%{init: {"theme": "dark" } }%%
+graph
+L --- P1
+L2 --- P2
+L3 --- P3
+L(library)
+L2(Library)
+L3(Library)
+P1(dashboard <br/> dplyr 0.8.5)
+P2("windowed daily census tract stats <br/> tidyverse/dtplyr@main <br/> dplyr 1.0.5")
+P3("hierarchical model experiments <br/> ")
+```
+
+## cache, money
+
+```{mermaid}
+%%{init: {"theme": "dark" } }%%
+graph
+L --- P1
+L2 --- P2
+L3 --- P3
+C --- L2
+C --- L3
+L(library)
+L2(Library)
+L3(Library)
+P1(dashboard <br/> dplyr 0.8.5)
+P2("windowed daily census tract stats <br/> tidyverse/dtplyr@main <br/> dplyr 1.0.5")
+P3("hierarchical model experiments <br/> ")
+C(renv package cache)
+```
 
 ## 
 
 ::: r-fit-text
 enumerate.
 :::
+
 
 ## `renv::snapshot()`
 
@@ -242,9 +297,29 @@ enumerate.
 
 ## 
 
-::: {.r-fit-text .r-stack}
-regulate. ![](images/regulate.jpg){.fragment}
+::: r-fit-text
+collaborate.
 :::
+
+## `renv::status()`
+
+```{.r}
+The following package(s) are recorded in the lockfile but not installed:
+              _
+  R6            [2.5.0]
+  Rcpp          [1.0.6]
+  askpass       [1.1]
+  base64enc     [0.1-3]
+  bslib         [0.2.4]
+  ...
+  sourcetools   [0.1.7]
+  sys           [3.4]
+  withr         [2.4.0]
+  xtable        [1.8-4]
+  yaml          [2.2.1]
+
+Use `renv::restore()` to install these packages.
+```
 
 ## 
 
@@ -263,6 +338,8 @@ regulate. ![](images/regulate.jpg){.fragment}
 
 ## `renv::restore()`
 
+
+
 # other patterns
 
 ## the junk drawer
@@ -273,31 +350,24 @@ regulate. ![](images/regulate.jpg){.fragment}
 
 ## `renv::use()`
 
+# probably?
 
-# 
+## I don't intend to re-use this code
+
+
+
+## I'm purely a package developer
+
+https://rstudio.github.io/renv/articles/packages.html#isolation
+
+
 
 ![](https://imgs.xkcd.com/comics/standards.png)
 
-# questions
+# we have an opportunity
 
-## what about `pak`?
-
-::: r-fit-text
-`RENV_CONFIG_PAK_ENABLED=TRUE`
-:::
-
-## are packages projects?
-
-kind of.
-https://rstudio.github.io/renv/articles/packages.html
-
-::: notes
-:::
-
-```{.r}
-library(revealjs)
-```
-
+Let's coalesce on a project standard.
+Use renv.
 
 ## feedback:
 
