@@ -128,7 +128,8 @@ You don't ship your editor.
 
 ## `*.Rproj`
 
-**necessary**, but not sufficient
+**necessary** (_if_ you use RStudio)  
+but not sufficient
 
 # what *is* a project?
 
@@ -138,7 +139,7 @@ You don't ship your editor.
 -   12 factor is focused on deploying web applications but many lessons translate
 :::
 
-## 12 factor
+## [12factor.net](https://12factor.net)
 
 > A twelve-factor app **never** relies on implicit existence of system-wide packages.
 
@@ -155,22 +156,17 @@ It uses a dependency isolation tool \[...\] to ensure that no implicit dependenc
 
 ## leak-in
 
-```{mermaid}
-%%{init: {"theme": "dark" } }%%
-graph
-L --- P1
-L(user library)
-P1(dashboard <br/> dplyr 1.0.5)
-```
+![](images/leak-in.svg)
 
 ## leak-in
 
 ```{mermaid}
+%%| fig-width: 800px
 %%{init: {"theme": "dark" } }%%
 graph
 L --- P1
 L --- P2
-L(library)
+L(user library)
 P1(dashboard <br/> dplyr 0.8.5)
 P2("windowed daily census tract stats <br/> &#129300;")
 ```
@@ -180,11 +176,12 @@ P2("windowed daily census tract stats <br/> &#129300;")
 ### `install_github("tidyverse/dtplyr")` {.smaller}
 
 ```{mermaid}
+%%| fig-width: 800px
 %%{init: {"theme": "dark" } }%%
 graph
 L --- P1
 L --- P2
-L(library)
+L(user library)
 P1(dashboard <br/> dplyr 0.8.5)
 P2("windowed daily census tract stats <br/> tidyverse/dtplyr@main")
 ```
@@ -193,19 +190,15 @@ P2("windowed daily census tract stats <br/> tidyverse/dtplyr@main")
 
 ### `install_github("tidyverse/dtplyr")` {.smaller}
 
-```{mermaid}
-%%{init: {"theme": "dark" } }%%
-graph
-L --- P1
-L --- P2
-L(library)
-P1("dashboard <br/> <span style='color:red'>dplyr 1.0.5</span>")
-P2("windowed daily census tract stats <br/> tidyverse/dtplyr@main")
-```
+![](images/oh-shit.svg)
 
 ## panic, a haiku
 
 when do you think you <br/> want to  discover that you've <br/> broken your dashboard?
+
+::: notes
+design to not be able to lock your keys in the car
+:::
 
 # how
 
@@ -223,12 +216,13 @@ or,
 ## `renv::init()`
 
 ```{mermaid}
+%%| fig-width: 900px
 %%{init: {"theme": "dark" } }%%
 graph
 L --- P1
 L2 --- P2
-L(library)
-L2(Library)
+L(user library)
+L2(project library)
 P1(dashboard <br/> dplyr 0.8.5)
 P2("windowed daily census tract stats <br/> tidyverse/dtplyr@main <br/> dplyr 1.0.5")
 ```
@@ -236,22 +230,24 @@ P2("windowed daily census tract stats <br/> tidyverse/dtplyr@main <br/> dplyr 1.
 ## `renv::init()`
 
 ```{mermaid}
+%%| fig-width: 1000px
 %%{init: {"theme": "dark" } }%%
 graph
 L --- P1
 L2 --- P2
 L3 --- P3
-L(library)
-L2(Library)
-L3(Library)
+L(user library)
+L2(project library)
+L3(project ibrary)
 P1(dashboard <br/> dplyr 0.8.5)
 P2("windowed daily census tract stats <br/> tidyverse/dtplyr@main <br/> dplyr 1.0.5")
-P3("hierarchical model experiments <br/> ")
+P3("hierarchical model experiments <br/> tidymodels/multilevelmod@main")
 ```
 
 ## cache, money
 
 ```{mermaid}
+%%| fig-width: 1000px
 %%{init: {"theme": "dark" } }%%
 graph
 L --- P1
@@ -259,12 +255,12 @@ L2 --- P2
 L3 --- P3
 C --- L2
 C --- L3
-L(library)
-L2(Library)
-L3(Library)
+L(user library)
+L2(project library)
+L3(project library)
 P1(dashboard <br/> dplyr 0.8.5)
 P2("windowed daily census tract stats <br/> tidyverse/dtplyr@main <br/> dplyr 1.0.5")
-P3("hierarchical model experiments <br/> ")
+P3("hierarchical model experiments <br/> tidymodels/multilevelmod@main")
 C(renv package cache)
 ```
 
@@ -277,9 +273,7 @@ enumerate.
 
 ## `renv::snapshot()`
 
-`renv.lock`
-
-``` json
+```{.json code-line-numbers="false"}
 {
   ...
   "Packages": {
@@ -294,6 +288,46 @@ enumerate.
   }
 }
 ```
+
+## `renv::snapshot()`
+
+```{.json code-line-numbers="false"}
+  "R": {
+    "Version": "4.1.1",
+    "Repositories": [
+      {
+        "Name": "RSPM",
+        "URL": "https://packagemanager.rstudio.com/cran/latest"
+      }
+    ]
+  },
+```
+
+## `renv::snapshopt()`
+
+```{.json code-line-numbers="false"}
+"gitcellar": {
+  "Package": "gitcellar",
+  "Version": "0.0.0.9000",
+  "Source": "Repository",
+  "Repository": "https://ropensci.r-universe.dev",
+  "RemoteUrl": "https://github.com/ropensci-org/gitcellar",
+  "RemoteRef": "main",
+  "RemoteSha": "5c761b993720ef51aeea81a94f01e34ae0c71c84",
+  "Hash": "95fe2a4c4002b5d8fd674d460c6af4c1",
+  "Requirements": [
+    "R6",
+    "gh",
+    "purrr",
+    "tibble",
+    "withr"
+  ]
+},
+```
+
+## `renv.lock`
+
+is the project artifact we're looking for.
 
 ## 
 
@@ -321,66 +355,61 @@ The following package(s) are recorded in the lockfile but not installed:
 Use `renv::restore()` to install these packages.
 ```
 
-## 
+## `renv::status()`
 
-`renv.lock`
-```
-  "R": {
-    "Version": "4.1.1",
-    "Repositories": [
-      {
-        "Name": "CRAN",
-        "URL": "https://cran.rstudio.com"
-      }
-    ]
-  },
+```{.r}
+The following package(s) are used in the project, but are not installed:
+
+	vitessceR
+
+Consider installing these packages, and then using `renv::snapshot()`
+to record these packages in the lockfile.
 ```
 
-## `renv::restore()`
+## `renv::status()`
 
+```{.r}
+The following package(s) are no longer used in this project:
+            _
+  gh          [1.3.0]
+  gitcellar   [0.0.0.9000]
+  gitcreds    [0.1.1]
+  ini         [0.3.1]
 
+Use `renv::snapshot()` to remove them from the lockfile.
+```
 
-# other patterns
-
-## the junk drawer
+## the workflow
 
 ::: r-fit-text
-`~/Documents/scratch`
+::: {.fragment .fade-out} 
+`renv::init()`  
 :::
-
-## `renv::use()`
+`renv::snapshot()`  
+_ship_  
+`renv::restore()`  
+:::
 
 # probably?
 
 ## I don't intend to re-use this code
 
-
+::: {.r-stack .fragment}
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">The quick and dirty approach you took then comes right back at you as a boomerang. <br><br>Therefore, ban the concept of one-off altogether. No matter what the asker says, it will have to be done again, always!<br><br>3/9</p>&mdash; Edwin Thoen (@edwin_thoen) <a href="https://twitter.com/edwin_thoen/status/1526261181631152129?ref_src=twsrc%5Etfw">May 16, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+:::
 
 ## I'm purely a package developer
 
 https://rstudio.github.io/renv/articles/packages.html#isolation
 
+## we have an opportunity
 
+Let's coalesce on a project standard.  
 
-![](https://imgs.xkcd.com/comics/standards.png)
-
-# we have an opportunity
-
-Let's coalesce on a project standard.
+::: r-fit-text
 Use renv.
+:::
 
-## feedback:
+# special thanks
 
-Kevin:
-make sure you call out that projects need lockfiles
-what's happening with respect to the private package library
-discuss when to call snapshot
-
-Alex:
-reverse the motivation so that it's less of an appeal to authority
-people need to be shown that it's not that hard
-
-who is this for?
-showcase horrors?
-mention cache?
-https://groundhogr.com/renv/
+Kevin Ushey
