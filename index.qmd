@@ -156,7 +156,14 @@ It uses a dependency isolation tool \[...\] to ensure that no implicit dependenc
 
 ## leak-in
 
-![](images/leak-in.svg)
+```{mermaid}
+%%| fig-width: 400px
+%%{init: {"theme": "dark" } }%%
+graph
+L --- P1
+L(user library)
+P1(dashboard <br/> dplyr 1.0.5)
+```
 
 ## leak-in
 
