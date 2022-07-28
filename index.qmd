@@ -4,6 +4,8 @@ format:
     transition: fade
     theme: night
     mermaid-format: svg
+    navigation-mode: linear
+    controls: false
 from: markdown+emoji
 ---
 

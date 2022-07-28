@@ -4,6 +4,6 @@
 .Ruserdata
 
 /.quarto/
+_site/
+_freeze/
 index_files/
-index.html
-
