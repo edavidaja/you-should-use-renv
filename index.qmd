@@ -223,11 +223,11 @@ or,
 
 :::
 
-## `renv::init()`
+## `renv::install("tidyverse/dtplyr@main")` {.r-fit-text}
 
 ![](images/isolate-proj-lib.svg)
 
-## `renv::init()`
+## `renv::init()`; `renv::install()` 
 
 ![](images/isolate-experiments.svg)
 
@@ -356,10 +356,11 @@ Use `renv::snapshot()` to remove them from the lockfile.
 
 ## the workflow
 
-::: r-fit-text
+::: {.smaller}
 ::: {.fragment .fade-out} 
 `renv::init()`  
 :::
+`renv::install()`  
 `renv::snapshot()`  
 _ship_  
 `renv::restore()`  
