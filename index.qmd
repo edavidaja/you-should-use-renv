@@ -156,42 +156,17 @@ It uses a dependency isolation tool \[...\] to ensure that no implicit dependenc
 
 ## leak-in
 
-```{mermaid}
-%%| fig-width: 400px
-%%{init: {"theme": "dark" } }%%
-graph
-L --- P1
-L(user library)
-P1(dashboard <br/> dplyr 1.0.5)
-```
+![](images/leak-in.svg)
 
 ## leak-in
 
-```{mermaid}
-%%| fig-width: 800px
-%%{init: {"theme": "dark" } }%%
-graph
-L --- P1
-L --- P2
-L(user library)
-P1(dashboard <br/> dplyr 0.8.5)
-P2("windowed daily census tract stats <br/> &#129300;")
-```
+![](images/leak-in-think.svg)
 
 ## 
 
 ### `install_github("tidyverse/dtplyr")` {.smaller}
 
-```{mermaid}
-%%| fig-width: 800px
-%%{init: {"theme": "dark" } }%%
-graph
-L --- P1
-L --- P2
-L(user library)
-P1(dashboard <br/> dplyr 0.8.5)
-P2("windowed daily census tract stats <br/> tidyverse/dtplyr@main")
-```
+![](images/leak-in-install-dtplyr.svg)
 
 ## 
 
@@ -222,54 +197,15 @@ or,
 
 ## `renv::init()`
 
-```{mermaid}
-%%| fig-width: 900px
-%%{init: {"theme": "dark" } }%%
-graph
-L --- P1
-L2 --- P2
-L(user library)
-L2(project library)
-P1(dashboard <br/> dplyr 0.8.5)
-P2("windowed daily census tract stats <br/> tidyverse/dtplyr@main <br/> dplyr 1.0.5")
-```
+![](images/isolate-proj-lib.svg)
 
 ## `renv::init()`
 
-```{mermaid}
-%%| fig-width: 1000px
-%%{init: {"theme": "dark" } }%%
-graph
-L --- P1
-L2 --- P2
-L3 --- P3
-L(user library)
-L2(project library)
-L3(project ibrary)
-P1(dashboard <br/> dplyr 0.8.5)
-P2("windowed daily census tract stats <br/> tidyverse/dtplyr@main <br/> dplyr 1.0.5")
-P3("hierarchical model experiments <br/> tidymodels/multilevelmod@main")
-```
+![](images/isolate-experiments.svg)
 
 ## cache, money
 
-```{mermaid}
-%%| fig-width: 1000px
-%%{init: {"theme": "dark" } }%%
-graph
-L --- P1
-L2 --- P2
-L3 --- P3
-C --- L2
-C --- L3
-L(user library)
-L2(project library)
-L3(project library)
-P1(dashboard <br/> dplyr 0.8.5)
-P2("windowed daily census tract stats <br/> tidyverse/dtplyr@main <br/> dplyr 1.0.5")
-P3("hierarchical model experiments <br/> tidymodels/multilevelmod@main")
-C(renv package cache)
-```
+![](images/isolate-cache.svg)
 
 ## 
 
