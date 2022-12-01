@@ -209,23 +209,27 @@ or,
 ::: {.fragment .fade-out}
 ```{.r code-line-numbers="false"}
 > .libPaths()
-[1] "C:/Users/edavi/Documents/R/win-library/3.6" # user
-[2] "C:/Program Files/R/R-3.6.3/library" # system
+[1] "~/Library/R/x86_64/4.2/library" # user                
+[2] "/Library/Frameworks/R.framework/Versions/4.2/Resources/library" # system
 ```
 :::
 
 ::: {.fragment}
 ```{.r code-line-numbers="false"}
-* Project '~/projects/sample-project' loaded. [renv 0.15.5]
+* Project '~/Documents/projects/sample-project' loaded. [renv 0.16.0]
 > .libPaths()
-[1] "C:/Users/edavi/Documents/projects/sample-project/renv/library/R-4.1/x86_64-w64-mingw32"
-[2] "C:/Program Files/R/R-4.1.3/library"
+[1] "~/Documents/projects/sample-project/renv/library/R-4.2/x86_64-apple-darwin17.0"         
+[2] "~/Documents/projects/sample-project/renv/sandbox/R-4.2/x86_64-apple-darwin17.0/fb4b0a46"
 ```
 :::
 
 :::
 
-## `renv::install("tidyverse/dtplyr@main")` {.r-fit-text}
+## 
+
+::: {.r-fit-text}
+<h2>`renv::install("tidyverse/dtplyr@main")`</h2> 
+:::
 
 ![](images/isolate-proj-lib.svg)
 
