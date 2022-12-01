@@ -116,13 +116,13 @@
     "href": "index.html#libpaths",
     "title": "",
     "section": ".libPaths()",
-    "text": ".libPaths()\n\n\n> .libPaths()\n[1] \"C:/Users/edavi/Documents/R/win-library/3.6\" # user\n[2] \"C:/Program Files/R/R-3.6.3/library\" # system\n\n\n* Project '~/projects/sample-project' loaded. [renv 0.15.5]\n> .libPaths()\n[1] \"C:/Users/edavi/Documents/projects/sample-project/renv/library/R-4.1/x86_64-w64-mingw32\"\n[2] \"C:/Program Files/R/R-4.1.3/library\""
+    "text": ".libPaths()\n\n\n> .libPaths()\n[1] \"~/Library/R/x86_64/4.2/library\" # user                \n[2] \"/Library/Frameworks/R.framework/Versions/4.2/Resources/library\" # system\n\n\n* Project '~/Documents/projects/sample-project' loaded. [renv 0.16.0]\n> .libPaths()\n[1] \"~/Documents/projects/sample-project/renv/library/R-4.2/x86_64-apple-darwin17.0\"         \n[2] \"~/Documents/projects/sample-project/renv/sandbox/R-4.2/x86_64-apple-darwin17.0/fb4b0a46\""
   },
   {
-    "objectID": "index.html#renvinstalltidyversedtplyrmain",
-    "href": "index.html#renvinstalltidyversedtplyrmain",
+    "objectID": "index.html#section-6",
+    "href": "index.html#section-6",
     "title": "",
-    "section": "renv::install(\"tidyverse/dtplyr@main\")",
+    "section": "",
     "text": "renv::install(\"tidyverse/dtplyr@main\")"
   },
   {
@@ -140,8 +140,8 @@
     "text": "cache, money"
   },
   {
-    "objectID": "index.html#section-6",
-    "href": "index.html#section-6",
+    "objectID": "index.html#section-7",
+    "href": "index.html#section-7",
     "title": "",
     "section": "",
     "text": "enumerate."
@@ -168,15 +168,15 @@
     "text": "renv::snapshot()\n\"gitcellar\": {\n  \"Package\": \"gitcellar\",\n  \"Version\": \"0.0.0.9000\",\n  \"Source\": \"Repository\",\n  \"Repository\": \"https://ropensci.r-universe.dev\",\n  \"RemoteUrl\": \"https://github.com/ropensci-org/gitcellar\",\n  \"RemoteRef\": \"main\",\n  \"RemoteSha\": \"5c761b993720ef51aeea81a94f01e34ae0c71c84\",\n  \"Hash\": \"95fe2a4c4002b5d8fd674d460c6af4c1\",\n  \"Requirements\": [\n    \"R6\",\n    \"gh\",\n    \"purrr\",\n    \"tibble\",\n    \"withr\"\n  ]\n},"
   },
   {
-    "objectID": "index.html#section-7",
-    "href": "index.html#section-7",
+    "objectID": "index.html#section-8",
+    "href": "index.html#section-8",
     "title": "",
     "section": "",
     "text": "renv.lock\n\nis the project artifact we’re looking for."
   },
   {
-    "objectID": "index.html#section-8",
-    "href": "index.html#section-8",
+    "objectID": "index.html#section-9",
+    "href": "index.html#section-9",
     "title": "",
     "section": "",
     "text": "collaborate."
