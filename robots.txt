@@ -1,1 +1,1 @@
-Sitemap: https://github.com/edavidaja/you-should-use-renv/sitemap.xml
+Sitemap: https://edavidaja.github.io/you-should-use-renv/sitemap.xml
