@@ -10,7 +10,7 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.514">
 
-  <title>you-should-use-renv</title>
+  <title>you-should-use-renv – workshop</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -392,26 +392,6 @@
 
 <section id="section" class="title-slide slide level1 center" data-background-image="images/julia-joppien-XFUqd0u5U7w-unsplash.jpg">
 <h1></h1>
-<aside class="notes">
-<p>I’m David Aja, a member of the SE team at RStudio.<br>
-I help data scientists get their ideas into production.<br>
-I see a lot of broken things.<br>
-So that’s why today I’ll be talking about:</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="section-1" class="title-slide slide level1 center" data-background-image="images/julia-joppien-XFUqd0u5U7w-unsplash.jpg">
-<h1></h1>
 <div class="columns">
 <div class="column" style="width:30%;">
 <div class="r-fit-text" color="white">
@@ -422,7 +402,7 @@ So that’s why today I’ll be talking about:</p>
 </div>
 </div>
 <div class="fragment">
-<p>(probably.)</p>
+<p>workshop</p>
 </div>
 </section>
 
@@ -446,158 +426,17 @@ So that’s why today I’ll be talking about:</p>
 <h1>why</h1>
 
 </section>
-<section id="we-have-a-standards-problem" class="slide level2">
-<h2>we have a standards problem</h2>
-<div class="fragment">
-<p>what makes a project an <em>R</em> project?</p>
-</div>
+<section id="sermon" class="slide level2">
+<h2>sermon</h2>
+<p><a href="https://www.youtube.com/watch?v=GwVx_pf2uz4">you should use renv.</a></p>
 </section>
-<section id="what-is-a-project" class="slide level2">
-<h2>what is a project?</h2>
-<div class="fragment fade-in">
-<blockquote>
-<p><em>an individual or collaborative enterprise that is carefully planned to achieve a particular aim.</em></p>
-<p>– Oxford Languages</p>
-</blockquote>
-</div>
+<section id="commandment" class="slide level2">
+<h2>commandment</h2>
+<p><em>projects</em> should be <em>reproducible.</em></p>
 <aside class="notes">
-<ul>
-<li>functional definition: a thing is what it does</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="what-is-a-project-1" class="slide level2">
-<h2>what is a project?</h2>
-<div class="r-stack">
-<div class="fragment fade-in r-fit-text">
-<p>a project <em>ships</em>.</p>
-</div>
-<div class="fragment">
-<p><img data-src="images/AOL_promotional_CDs_in_Canada.jpeg"></p>
-</div>
-</div>
-</section>
-<section id="i-thought-this-guy-works-at-rstudio" class="slide level2">
-<h2>I thought this guy works at RStudio</h2>
-</section>
-<section id="ceci-nest-pas-un-projet" class="slide level2">
-<h2>ceci n’est pas un projet</h2>
-<div class="r-fit-text">
-<p>*.Rproj</p>
-</div>
-</section>
-<section id="rproj" class="slide level2">
-<h2><code>*.Rproj</code></h2>
-<pre><code>Version: 1.0
-
-RestoreWorkspace: Default
-SaveWorkspace: Default
-AlwaysSaveHistory: Default
-
-UseSpacesForTab: Yes
-NumSpacesForTab: 2
-Encoding: UTF-8
-
-AutoAppendNewline: Yes
-StripTrailingWhitespace: Yes</code></pre>
-<div class="fragment">
-<p>You don’t ship your editor.</p>
-</div>
-<div class="fragment smaller" style="text-align: right;">
-<p><span class="emoji" data-emoji="see_no_evil">🙈</span> I have shipped my editor.</p>
-</div>
-<p><br> <br></p>
-<aside class="notes">
-<ul>
-<li><code>.Rproj</code> is mostly editor config</li>
-<li>signifier but doesn’t accomplish proejct goals</li>
-<li>Some RStudio handling of configurable R behaviors, but R doesn’t know that</li>
-<li>I didn’t get here from a history of flawless decision making.</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="rproj-1" class="slide level2">
-<h2><code>*.Rproj</code></h2>
-<p><strong>necessary</strong> (<em>if</em> you use RStudio)<br>
-but not sufficient</p>
-</section></section>
-<section>
-<section id="what-is-a-project-2" class="title-slide slide level1 center">
-<h1>what <em>is</em> a project?</h1>
-<aside class="notes">
-<ul>
-<li>we’re increasing the diversity of things R can do and where it does them</li>
-<li>behooves us to learn from other language and framework paradigms and how they think about reliably delivering product</li>
-<li>12 factor is focused on deploying web applications but many lessons translate</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="factor.net" class="slide level2">
-<h2><a href="https://12factor.net">12factor.net</a></h2>
-<blockquote>
-<p>A twelve-factor app <strong>never</strong> relies on implicit existence of system-wide packages.</p>
-</blockquote>
-<div class="columns">
-<div class="column fragment" style="width:49%;">
-<p>It declares all dependencies, completely and exactly, via a dependency declaration manifest.</p>
-</div><div class="column fragment" style="text-align: right;">
-<p>It uses a dependency isolation tool […] to ensure that no implicit dependencies “leak in”</p>
-</div>
-</div>
-</section>
-<section id="leak-in" class="slide level2">
-<h2>leak-in</h2>
-
-<img data-src="images/leak-in.svg" class="r-stretch"></section>
-<section id="leak-in-1" class="slide level2">
-<h2>leak-in</h2>
-
-<img data-src="images/leak-in-think.svg" class="r-stretch"></section>
-<section id="section-2" class="slide level2">
-<h2></h2>
-<h3 class="smaller" id="install_githubtidyversedtplyr"><code>install_github("tidyverse/dtplyr")</code></h3>
-
-<img data-src="images/leak-in-install-dtplyr.svg" class="r-stretch"></section>
-<section id="section-3" class="slide level2">
-<h2></h2>
-<h3 class="smaller" id="install_githubtidyversedtplyr-1"><code>install_github("tidyverse/dtplyr")</code></h3>
-
-<img data-src="images/oh-shit.svg" class="r-stretch"></section>
-<section id="panic-a-haiku" class="slide level2">
-<h2>panic, a haiku</h2>
-<p>when do you think you <br> want to discover that you’ve <br> broken your dashboard?</p>
-<aside class="notes">
-<p>design to not be able to lock your keys in the car</p>
+<p>projects, for the purpose of this workshop, are anything you want to share that isn’t an R package–shiny app, plumber API, quarto doc<br>
+reproducibility is a <a href="https://ropensci-archive.github.io/reproducibility-guide/sections/introduction/">layered, spectral</a> concept rather than a binary<br>
+the goal is for the project to be reproducible to the maximum extent possible</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -615,209 +454,50 @@ but not sufficient</p>
 <h1>how</h1>
 
 </section>
-<section id="section-4" class="slide level2">
-<h2></h2>
-<div class="r-fit-text">
-<p>isolate.</p>
-</div>
+<section id="on-repositories" class="slide level2">
+<h2><a href="https://rstudio.github.io/renv/articles/package-sources.html#custom-r-package-repositories">on repositories</a></h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">&gt;</span> options<span class="kw">(</span><span class="st">"repos"</span><span class="kw">)</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="va">$repos</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>                                         <span class="ex">CRAN</span> </span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="st">"https://packagemanager.posit.co/cran/latest"</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<p>renv will</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="section-5" class="slide level2">
-<h2></h2>
-<div class="r r-fit-text">
-<p><code>install.packages("renv")</code></p>
-</div>
+<section id="fetch-examples" class="slide level2">
+<h2>fetch examples</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>usethis<span class="sc">::</span><span class="fu">use_zip</span>(<span class="st">"https://gitlab.com/edavidaja/renv-workshop/-/archive/main/renv-workshop-main.zip"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>or</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">git</span> clone https://gitlab.com/edavidaja/renv-workshop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="renvinit" class="slide level2">
-<h2><code>renv::init()</code></h2>
-<p>or,</p>
-
-<img data-src="images/paste-547A1832.png" class="r-stretch"></section>
-<section id="libpaths" class="slide level2">
-<h2><code>.libPaths()</code></h2>
-<div class="r-stack">
-<div class="fragment fade-out">
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">.libPaths</span>()</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"~/Library/R/x86_64/4.2/library"</span> <span class="co"># user                </span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">2</span>] <span class="st">"/Library/Frameworks/R.framework/Versions/4.2/Resources/library"</span> <span class="co"># system</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="fragment">
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span> Project <span class="st">'~/Documents/projects/sample-project'</span> loaded. [renv <span class="dv">0</span>.<span class="fl">16.0</span>]</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">.libPaths</span>()</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"~/Documents/projects/sample-project/renv/library/R-4.2/x86_64-apple-darwin17.0"</span>         </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>[<span class="dv">2</span>] <span class="st">"~/Documents/projects/sample-project/renv/sandbox/R-4.2/x86_64-apple-darwin17.0/fb4b0a46"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
+<section id="new-project" class="slide level2">
+<h2>new project</h2>
 </section>
-<section id="section-6" class="slide level2">
-<h2></h2>
-<div class="r-fit-text">
-<h2>
-<code>renv::install("tidyverse/dtplyr@main")</code>
-</h2>
-</div>
-
-<img data-src="images/isolate-proj-lib.svg" class="r-stretch"></section>
-<section id="renvinit-renvinstall" class="slide level2">
-<h2><code>renv::init()</code>; <code>renv::install()</code></h2>
-
-<img data-src="images/isolate-experiments.svg" class="r-stretch"></section>
-<section id="cache-money" class="slide level2">
-<h2>cache, money</h2>
-
-<img data-src="images/isolate-cache.svg" class="r-stretch"></section>
-<section id="section-7" class="slide level2">
-<h2></h2>
-<div class="r-fit-text">
-<p>enumerate.</p>
-</div>
+<section id="existing-project" class="slide level2">
+<h2>existing project</h2>
 </section>
-<section id="renvsnapshot" class="slide level2">
-<h2><code>renv::snapshot()</code></h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="er">...</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"Packages"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"DBI"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"DBI"</span><span class="fu">,</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.1.1"</span><span class="fu">,</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"030aaec5bc6553f35347cbb1e70b1a17"</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">},</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="er">...</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="old-project" class="slide level2">
+<h2>old project</h2>
+<p><a href="https://github.com/edavidaja/clippers">an old shiny app</a></p>
 </section>
-<section id="renvsnapshot-1" class="slide level2">
-<h2><code>renv::snapshot()</code></h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  <span class="er">"R":</span> <span class="fu">{</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"4.1.1"</span><span class="fu">,</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"Repositories"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"Name"</span><span class="fu">:</span> <span class="st">"RSPM"</span><span class="fu">,</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"URL"</span><span class="fu">:</span> <span class="st">"https://packagemanager.rstudio.com/cran/latest"</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">}</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="er">,</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="renvsnapshot-2" class="slide level2">
-<h2><code>renv::snapshot()</code></h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">"gitcellar":</span> <span class="fu">{</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"gitcellar"</span><span class="fu">,</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"0.0.0.9000"</span><span class="fu">,</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"https://ropensci.r-universe.dev"</span><span class="fu">,</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"RemoteUrl"</span><span class="fu">:</span> <span class="st">"https://github.com/ropensci-org/gitcellar"</span><span class="fu">,</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"RemoteRef"</span><span class="fu">:</span> <span class="st">"main"</span><span class="fu">,</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"RemoteSha"</span><span class="fu">:</span> <span class="st">"5c761b993720ef51aeea81a94f01e34ae0c71c84"</span><span class="fu">,</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"95fe2a4c4002b5d8fd674d460c6af4c1"</span><span class="fu">,</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"R6"</span><span class="ot">,</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gh"</span><span class="ot">,</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"purrr"</span><span class="ot">,</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"tibble"</span><span class="ot">,</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"withr"</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span><span class="er">,</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="section-8" class="slide level2">
-<h2></h2>
-<div class="r-fit-text">
-<p><code>renv.lock</code></p>
-</div>
-<p>is the project artifact we’re looking for.</p>
-</section>
-<section id="section-9" class="slide level2">
-<h2></h2>
-<div class="r-fit-text">
-<p>collaborate.</p>
-</div>
-</section>
-<section id="renvstatus" class="slide level2">
-<h2><code>renv::status()</code></h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>The following <span class="fu">package</span>(s) are recorded <span class="cf">in</span> the lockfile but not installed<span class="sc">:</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a>              _</span>
-<span id="cb7-3"><a href="#cb7-3"></a>  R6            [<span class="dv">2</span>.<span class="fl">5.0</span>]</span>
-<span id="cb7-4"><a href="#cb7-4"></a>  Rcpp          [<span class="dv">1</span>.<span class="fl">0.6</span>]</span>
-<span id="cb7-5"><a href="#cb7-5"></a>  askpass       [<span class="fl">1.1</span>]</span>
-<span id="cb7-6"><a href="#cb7-6"></a>  base64enc     [<span class="fl">0.1</span><span class="dv">-3</span>]</span>
-<span id="cb7-7"><a href="#cb7-7"></a>  bslib         [<span class="dv">0</span>.<span class="fl">2.4</span>]</span>
-<span id="cb7-8"><a href="#cb7-8"></a>  ...</span>
-<span id="cb7-9"><a href="#cb7-9"></a>  sourcetools   [<span class="dv">0</span>.<span class="fl">1.7</span>]</span>
-<span id="cb7-10"><a href="#cb7-10"></a>  sys           [<span class="fl">3.4</span>]</span>
-<span id="cb7-11"><a href="#cb7-11"></a>  withr         [<span class="dv">2</span>.<span class="fl">4.0</span>]</span>
-<span id="cb7-12"><a href="#cb7-12"></a>  xtable        [<span class="fl">1.8</span><span class="dv">-4</span>]</span>
-<span id="cb7-13"><a href="#cb7-13"></a>  yaml          [<span class="dv">2</span>.<span class="fl">2.1</span>]</span>
-<span id="cb7-14"><a href="#cb7-14"></a></span>
-<span id="cb7-15"><a href="#cb7-15"></a>Use <span class="st">`</span><span class="at">renv::restore()</span><span class="st">`</span> to install these packages.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="renvstatus-1" class="slide level2">
-<h2><code>renv::status()</code></h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>The following <span class="fu">package</span>(s) are used <span class="cf">in</span> the project, but are not installed<span class="sc">:</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a></span>
-<span id="cb8-3"><a href="#cb8-3"></a>    vitessceR</span>
-<span id="cb8-4"><a href="#cb8-4"></a></span>
-<span id="cb8-5"><a href="#cb8-5"></a>Consider installing these packages, and then using <span class="st">`</span><span class="at">renv::snapshot()</span><span class="st">`</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a>to record these packages <span class="cf">in</span> the lockfile.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="renvstatus-2" class="slide level2">
-<h2><code>renv::status()</code></h2>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>The following <span class="fu">package</span>(s) are no longer used <span class="cf">in</span> this project<span class="sc">:</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>            _</span>
-<span id="cb9-3"><a href="#cb9-3"></a>  gh          [<span class="dv">1</span>.<span class="fl">3.0</span>]</span>
-<span id="cb9-4"><a href="#cb9-4"></a>  gitcellar   [<span class="dv">0</span>.<span class="dv">0</span>.<span class="fl">0.9000</span>]</span>
-<span id="cb9-5"><a href="#cb9-5"></a>  gitcreds    [<span class="dv">0</span>.<span class="fl">1.1</span>]</span>
-<span id="cb9-6"><a href="#cb9-6"></a>  ini         [<span class="dv">0</span>.<span class="fl">3.1</span>]</span>
-<span id="cb9-7"><a href="#cb9-7"></a></span>
-<span id="cb9-8"><a href="#cb9-8"></a>Use <span class="st">`</span><span class="at">renv::snapshot()</span><span class="st">`</span> to remove them from the lockfile.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="the-workflow" class="slide level2">
-<h2>the workflow</h2>
-<div class="smaller">
-<div class="fragment fade-out">
-<p><code>renv::init()</code></p>
-</div>
-<p><code>renv::install()</code><br>
-<code>renv::snapshot()</code><br>
-<em>ship</em><br>
-<code>renv::restore()</code></p>
-</div>
-</section></section>
-<section>
-<section id="probably" class="title-slide slide level1 center">
-<h1>probably?</h1>
-
-</section>
-<section id="i-dont-intend-to-re-use-this-code" class="slide level2">
-<h2>I don’t intend to re-use this code</h2>
-<div class="r-stack fragment">
-<blockquote class="twitter-tweet">
-<p lang="en" dir="ltr">
-The quick and dirty approach you took then comes right back at you as a boomerang. <br><br>Therefore, ban the concept of one-off altogether. No matter what the asker says, it will have to be done again, always!<br><br>3/9
-</p>
-— Edwin Thoen (<span class="citation" data-cites="edwin_thoen">@edwin_thoen</span>) <a href="https://twitter.com/edwin_thoen/status/1526261181631152129?ref_src=twsrc%5Etfw">May 16, 2022</a>
-</blockquote>
-<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-</section>
-<section id="im-purely-a-package-developer" class="slide level2">
-<h2>I’m purely a package developer</h2>
-<p><a href="https://rstudio.github.io/renv/articles/packages.html#isolation">article: isolation for package dev</a></p>
-</section>
-<section id="we-have-an-opportunity" class="slide level2">
-<h2>we have an opportunity</h2>
-<p>Let’s coalesce on a project standard.</p>
-<div class="r-fit-text">
-<p>Use renv.</p>
-</div>
-</section></section>
-<section id="special-thanks" class="title-slide slide level1 center">
-<h1>special thanks</h1>
-<p>Kevin Ushey</p>
+<section id="r-version-migration" class="slide level2">
+<h2>R version migration</h2>
+<p><a href="https://github.com/r-lib/rig">rig</a></p>
 
 <div class="footer footer-default">
 
 </div>
-</section>
+</section></section>
     </div>
   </div>
 

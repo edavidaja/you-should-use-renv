@@ -2,232 +2,288 @@
   {
     "objectID": "index.html#we-have-a-standards-problem",
     "href": "index.html#we-have-a-standards-problem",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "we have a standards problem",
     "text": "we have a standards problem\n\nwhat makes a project an R project?"
   },
   {
     "objectID": "index.html#what-is-a-project",
     "href": "index.html#what-is-a-project",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "what is a project?",
     "text": "what is a project?\n\n\nan individual or collaborative enterprise that is carefully planned to achieve a particular aim.\n– Oxford Languages\n\n\n\n\nfunctional definition: a thing is what it does"
   },
   {
     "objectID": "index.html#what-is-a-project-1",
     "href": "index.html#what-is-a-project-1",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "what is a project?",
     "text": "what is a project?\n\n\na project ships."
   },
   {
     "objectID": "index.html#i-thought-this-guy-works-at-rstudio",
     "href": "index.html#i-thought-this-guy-works-at-rstudio",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "I thought this guy works at RStudio",
     "text": "I thought this guy works at RStudio"
   },
   {
     "objectID": "index.html#ceci-nest-pas-un-projet",
     "href": "index.html#ceci-nest-pas-un-projet",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "ceci n’est pas un projet",
     "text": "ceci n’est pas un projet\n\n*.Rproj"
   },
   {
     "objectID": "index.html#rproj",
     "href": "index.html#rproj",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "*.Rproj",
     "text": "*.Rproj\nVersion: 1.0\n\nRestoreWorkspace: Default\nSaveWorkspace: Default\nAlwaysSaveHistory: Default\n\nUseSpacesForTab: Yes\nNumSpacesForTab: 2\nEncoding: UTF-8\n\nAutoAppendNewline: Yes\nStripTrailingWhitespace: Yes\n\nYou don’t ship your editor.\n\n\n🙈 I have shipped my editor.\n\n \n\n\n.Rproj is mostly editor config\nsignifier but doesn’t accomplish proejct goals\nSome RStudio handling of configurable R behaviors, but R doesn’t know that\nI didn’t get here from a history of flawless decision making."
   },
   {
     "objectID": "index.html#rproj-1",
     "href": "index.html#rproj-1",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "*.Rproj",
     "text": "*.Rproj\nnecessary (if you use RStudio)\nbut not sufficient"
   },
   {
     "objectID": "index.html#factor.net",
     "href": "index.html#factor.net",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "12factor.net",
     "text": "12factor.net\n\nA twelve-factor app never relies on implicit existence of system-wide packages.\n\n\n\nIt declares all dependencies, completely and exactly, via a dependency declaration manifest.\n\nIt uses a dependency isolation tool […] to ensure that no implicit dependencies “leak in”"
   },
   {
     "objectID": "index.html#leak-in",
     "href": "index.html#leak-in",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "leak-in",
     "text": "leak-in"
   },
   {
     "objectID": "index.html#leak-in-1",
     "href": "index.html#leak-in-1",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "leak-in",
     "text": "leak-in"
   },
   {
     "objectID": "index.html#section-2",
     "href": "index.html#section-2",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "",
     "text": "install_github(\"tidyverse/dtplyr\")"
   },
   {
     "objectID": "index.html#section-3",
     "href": "index.html#section-3",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "",
     "text": "install_github(\"tidyverse/dtplyr\")"
   },
   {
     "objectID": "index.html#panic-a-haiku",
     "href": "index.html#panic-a-haiku",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "panic, a haiku",
     "text": "panic, a haiku\nwhen do you think you  want to discover that you’ve  broken your dashboard?\n\ndesign to not be able to lock your keys in the car"
   },
   {
     "objectID": "index.html#section-4",
     "href": "index.html#section-4",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "",
     "text": "isolate."
   },
   {
     "objectID": "index.html#section-5",
     "href": "index.html#section-5",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "",
     "text": "install.packages(\"renv\")"
   },
   {
     "objectID": "index.html#renvinit",
     "href": "index.html#renvinit",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "renv::init()",
     "text": "renv::init()\nor,"
   },
   {
     "objectID": "index.html#libpaths",
     "href": "index.html#libpaths",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": ".libPaths()",
-    "text": ".libPaths()\n\n\n> .libPaths()\n[1] \"~/Library/R/x86_64/4.2/library\" # user                \n[2] \"/Library/Frameworks/R.framework/Versions/4.2/Resources/library\" # system\n\n\n* Project '~/Documents/projects/sample-project' loaded. [renv 0.16.0]\n> .libPaths()\n[1] \"~/Documents/projects/sample-project/renv/library/R-4.2/x86_64-apple-darwin17.0\"         \n[2] \"~/Documents/projects/sample-project/renv/sandbox/R-4.2/x86_64-apple-darwin17.0/fb4b0a46\""
+    "text": ".libPaths()\n\n\n&gt; .libPaths()\n[1] \"~/Library/R/x86_64/4.2/library\" # user                \n[2] \"/Library/Frameworks/R.framework/Versions/4.2/Resources/library\" # system\n\n\n* Project '~/Documents/projects/sample-project' loaded. [renv 0.16.0]\n&gt; .libPaths()\n[1] \"~/Documents/projects/sample-project/renv/library/R-4.2/x86_64-apple-darwin17.0\"         \n[2] \"~/Documents/projects/sample-project/renv/sandbox/R-4.2/x86_64-apple-darwin17.0/fb4b0a46\""
   },
   {
     "objectID": "index.html#section-6",
     "href": "index.html#section-6",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "",
     "text": "renv::install(\"tidyverse/dtplyr@main\")"
   },
   {
     "objectID": "index.html#renvinit-renvinstall",
     "href": "index.html#renvinit-renvinstall",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "renv::init(); renv::install()",
     "text": "renv::init(); renv::install()"
   },
   {
     "objectID": "index.html#cache-money",
     "href": "index.html#cache-money",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "cache, money",
     "text": "cache, money"
   },
   {
     "objectID": "index.html#section-7",
     "href": "index.html#section-7",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "",
     "text": "enumerate."
   },
   {
     "objectID": "index.html#renvsnapshot",
     "href": "index.html#renvsnapshot",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "renv::snapshot()",
     "text": "renv::snapshot()\n{\n  ...\n  \"Packages\": {\n    \"DBI\": {\n      \"Package\": \"DBI\",\n      \"Version\": \"1.1.1\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"CRAN\",\n      \"Hash\": \"030aaec5bc6553f35347cbb1e70b1a17\"\n    },\n    ...\n  }\n}"
   },
   {
     "objectID": "index.html#renvsnapshot-1",
     "href": "index.html#renvsnapshot-1",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "renv::snapshot()",
     "text": "renv::snapshot()\n  \"R\": {\n    \"Version\": \"4.1.1\",\n    \"Repositories\": [\n      {\n        \"Name\": \"RSPM\",\n        \"URL\": \"https://packagemanager.rstudio.com/cran/latest\"\n      }\n    ]\n  },"
   },
   {
     "objectID": "index.html#renvsnapshot-2",
     "href": "index.html#renvsnapshot-2",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "renv::snapshot()",
     "text": "renv::snapshot()\n\"gitcellar\": {\n  \"Package\": \"gitcellar\",\n  \"Version\": \"0.0.0.9000\",\n  \"Source\": \"Repository\",\n  \"Repository\": \"https://ropensci.r-universe.dev\",\n  \"RemoteUrl\": \"https://github.com/ropensci-org/gitcellar\",\n  \"RemoteRef\": \"main\",\n  \"RemoteSha\": \"5c761b993720ef51aeea81a94f01e34ae0c71c84\",\n  \"Hash\": \"95fe2a4c4002b5d8fd674d460c6af4c1\",\n  \"Requirements\": [\n    \"R6\",\n    \"gh\",\n    \"purrr\",\n    \"tibble\",\n    \"withr\"\n  ]\n},"
   },
   {
     "objectID": "index.html#section-8",
     "href": "index.html#section-8",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "",
     "text": "renv.lock\n\nis the project artifact we’re looking for."
   },
   {
     "objectID": "index.html#section-9",
     "href": "index.html#section-9",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "",
     "text": "collaborate."
   },
   {
     "objectID": "index.html#renvstatus",
     "href": "index.html#renvstatus",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "renv::status()",
     "text": "renv::status()\nThe following package(s) are recorded in the lockfile but not installed:\n              _\n  R6            [2.5.0]\n  Rcpp          [1.0.6]\n  askpass       [1.1]\n  base64enc     [0.1-3]\n  bslib         [0.2.4]\n  ...\n  sourcetools   [0.1.7]\n  sys           [3.4]\n  withr         [2.4.0]\n  xtable        [1.8-4]\n  yaml          [2.2.1]\n\nUse `renv::restore()` to install these packages."
   },
   {
     "objectID": "index.html#renvstatus-1",
     "href": "index.html#renvstatus-1",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "renv::status()",
     "text": "renv::status()\nThe following package(s) are used in the project, but are not installed:\n\n    vitessceR\n\nConsider installing these packages, and then using `renv::snapshot()`\nto record these packages in the lockfile."
   },
   {
     "objectID": "index.html#renvstatus-2",
     "href": "index.html#renvstatus-2",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "renv::status()",
     "text": "renv::status()\nThe following package(s) are no longer used in this project:\n            _\n  gh          [1.3.0]\n  gitcellar   [0.0.0.9000]\n  gitcreds    [0.1.1]\n  ini         [0.3.1]\n\nUse `renv::snapshot()` to remove them from the lockfile."
   },
   {
     "objectID": "index.html#the-workflow",
     "href": "index.html#the-workflow",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "the workflow",
     "text": "the workflow\n\n\nrenv::init()\n\nrenv::install()\nrenv::snapshot()\nship\nrenv::restore()"
   },
   {
     "objectID": "index.html#i-dont-intend-to-re-use-this-code",
     "href": "index.html#i-dont-intend-to-re-use-this-code",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "I don’t intend to re-use this code",
     "text": "I don’t intend to re-use this code\n\n\n\nThe quick and dirty approach you took then comes right back at you as a boomerang. Therefore, ban the concept of one-off altogether. No matter what the asker says, it will have to be done again, always!3/9\n\n— Edwin Thoen (@edwin_thoen) May 16, 2022"
   },
   {
     "objectID": "index.html#im-purely-a-package-developer",
     "href": "index.html#im-purely-a-package-developer",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "I’m purely a package developer",
     "text": "I’m purely a package developer\narticle: isolation for package dev"
   },
   {
     "objectID": "index.html#we-have-an-opportunity",
     "href": "index.html#we-have-an-opportunity",
-    "title": "",
+    "title": "you-should-use-renv",
     "section": "we have an opportunity",
     "text": "we have an opportunity\nLet’s coalesce on a project standard.\n\nUse renv."
+  },
+  {
+    "objectID": "workshop.html#sermon",
+    "href": "workshop.html#sermon",
+    "title": "you-should-use-renv",
+    "section": "sermon",
+    "text": "sermon\nyou should use renv."
+  },
+  {
+    "objectID": "workshop.html#commandment",
+    "href": "workshop.html#commandment",
+    "title": "you-should-use-renv",
+    "section": "commandment",
+    "text": "commandment\nprojects should be reproducible.\n\nprojects, for the purpose of this workshop, are anything you want to share that isn’t an R package–shiny app, plumber API, quarto doc\nreproducibility is a layered, spectral concept rather than a binary\nthe goal is for the project to be reproducible to the maximum extent possible"
+  },
+  {
+    "objectID": "workshop.html#on-repositories",
+    "href": "workshop.html#on-repositories",
+    "title": "you-should-use-renv",
+    "section": "on repositories",
+    "text": "on repositories\n&gt; options(\"repos\")\n$repos\n                                         CRAN \n\"https://packagemanager.posit.co/cran/latest\" \n\nrenv will"
+  },
+  {
+    "objectID": "workshop.html#fetch-examples",
+    "href": "workshop.html#fetch-examples",
+    "title": "you-should-use-renv",
+    "section": "fetch examples",
+    "text": "fetch examples\nusethis::use_zip(\"https://gitlab.com/edavidaja/renv-workshop/-/archive/main/renv-workshop-main.zip\")\nor\ngit clone https://gitlab.com/edavidaja/renv-workshop"
+  },
+  {
+    "objectID": "workshop.html#new-project",
+    "href": "workshop.html#new-project",
+    "title": "you-should-use-renv",
+    "section": "new project",
+    "text": "new project"
+  },
+  {
+    "objectID": "workshop.html#existing-project",
+    "href": "workshop.html#existing-project",
+    "title": "you-should-use-renv",
+    "section": "existing project",
+    "text": "existing project"
+  },
+  {
+    "objectID": "workshop.html#old-project",
+    "href": "workshop.html#old-project",
+    "title": "you-should-use-renv",
+    "section": "old project",
+    "text": "old project\nan old shiny app"
+  },
+  {
+    "objectID": "workshop.html#r-version-migration",
+    "href": "workshop.html#r-version-migration",
+    "title": "you-should-use-renv",
+    "section": "R version migration",
+    "text": "R version migration\nrig"
   }
 ]
