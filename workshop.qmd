@@ -1,0 +1,100 @@
+---
+format:
+  revealjs:
+    transition: fade
+    theme: night
+    mermaid-format: svg
+    navigation-mode: linear
+    controls: false
+from: markdown+emoji
+---
+
+#  {background-image="images/julia-joppien-XFUqd0u5U7w-unsplash.jpg"}
+
+::: columns
+::: {.column width="30%"}
+::: {.r-fit-text color="white"}
+You <br/> should <br/> use <br/> renv.
+:::
+:::
+
+::: {.column width="70%"}
+:::
+:::
+
+::: fragment
+workshop
+:::
+
+# agenda
+
+::: columns
+
+::: {.column width="50%"}
+::: {.r-fit-text .fragment}
+why
+:::
+:::
+
+
+::: {.column width="50%"}
+::: {.r-fit-text .fragment}
+how
+:::
+:::
+
+:::
+
+# why
+
+## sermon
+
+[you should use renv.](https://www.youtube.com/watch?v=GwVx_pf2uz4)
+
+## commandment
+
+_projects_ should be _reproducible._
+
+::: notes
+projects, for the purpose of this workshop, are anything you want to share that isn't an R package--shiny app, plumber API, quarto doc  
+reproducibility is a [layered, spectral](https://ropensci-archive.github.io/reproducibility-guide/sections/introduction/) concept rather than a binary  
+the goal is for the project to be reproducible to the maximum extent possible
+:::
+
+# how
+
+## [on repositories](https://rstudio.github.io/renv/articles/package-sources.html#custom-r-package-repositories)
+
+```bash
+> options("repos")
+$repos
+                                         CRAN 
+"https://packagemanager.posit.co/cran/latest" 
+```
+
+::: notes
+renv will 
+:::
+
+## fetch examples
+
+```{.r}
+usethis::use_zip("https://gitlab.com/edavidaja/renv-workshop/-/archive/main/renv-workshop-main.zip")
+```
+or
+
+```bash
+git clone https://gitlab.com/edavidaja/renv-workshop
+```
+
+## new project
+
+## existing project
+
+## old project
+
+[an old shiny app](https://github.com/edavidaja/clippers)
+
+## R version migration
+
+[rig](https://github.com/r-lib/rig)

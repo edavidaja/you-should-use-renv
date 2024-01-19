@@ -2,5 +2,5 @@ project:
   title: "you-should-use-renv"
   type: website
 
-
-
+filters:
+  - include-code-files
