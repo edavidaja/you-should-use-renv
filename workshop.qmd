@@ -63,7 +63,11 @@ the goal is for the project to be reproducible to the maximum extent possible
 
 # how
 
-## [on repositories](https://rstudio.github.io/renv/articles/package-sources.html#custom-r-package-repositories)
+## on repositories
+
+[renv: custom R package repositories](https://rstudio.github.io/renv/articles/package-sources.html#custom-r-package-repositories)
+
+## get
 
 ```bash
 > options("repos")
@@ -72,9 +76,20 @@ $repos
 "https://packagemanager.posit.co/cran/latest" 
 ```
 
-::: notes
-renv will 
-:::
+## set:
+
+posit public package manager (p3m)
+
+```r
+options(repos = c(CRAN = "https://p3m.dev/cran/latest"))
+options("repos")
+```
+
+## set: StatCan
+
+```r
+options(repos = c(artifactory = "https://username:password@artifactory.ourinternalurl.ca/artifactory/cran-remote"))
+```
 
 ## fetch examples
 
