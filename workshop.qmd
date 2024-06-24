@@ -78,23 +78,23 @@ $repos
 
 ## set:
 
-posit public package manager (p3m)
+posit __public__ package manager (p3m)
 
 ```r
 options(repos = c(CRAN = "https://p3m.dev/cran/latest"))
 options("repos")
 ```
 
-## set: StatCan
+## set: posit package manager
 
 ```r
-options(repos = c(artifactory = "https://username:password@artifactory.ourinternalurl.ca/artifactory/cran-remote"))
+options(repos = c(ppm = "https://packagemanager.example.com/cran/__linux__/jammy/latest"))
 ```
 
 ## fetch examples
 
 ```{.r}
-usethis::use_zip("https://gitlab.com/edavidaja/renv-workshop/-/archive/main/renv-workshop-main.zip")
+usethis::use_zip("edavidaja/renv-workshop")
 ```
 or
 
