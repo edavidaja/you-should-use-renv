@@ -1,82 +1,5 @@
 [
   {
-    "objectID": "workshop.html#sermon",
-    "href": "workshop.html#sermon",
-    "title": "you-should-use-renv",
-    "section": "sermon",
-    "text": "sermon\nyou should use renv."
-  },
-  {
-    "objectID": "workshop.html#commandment",
-    "href": "workshop.html#commandment",
-    "title": "you-should-use-renv",
-    "section": "commandment",
-    "text": "commandment\nprojects should be reproducible.\n\nprojects, for the purpose of this workshop, are anything you want to share that isn’t an R package–shiny app, plumber API, quarto doc\nreproducibility is a layered, spectral concept rather than a binary\nthe goal is for the project to be reproducible to the maximum extent possible"
-  },
-  {
-    "objectID": "workshop.html#on-repositories",
-    "href": "workshop.html#on-repositories",
-    "title": "you-should-use-renv",
-    "section": "on repositories",
-    "text": "on repositories\nrenv: custom R package repositories"
-  },
-  {
-    "objectID": "workshop.html#get",
-    "href": "workshop.html#get",
-    "title": "you-should-use-renv",
-    "section": "get",
-    "text": "get\n&gt; options(\"repos\")\n$repos\n                                         CRAN \n\"https://packagemanager.posit.co/cran/latest\""
-  },
-  {
-    "objectID": "workshop.html#set",
-    "href": "workshop.html#set",
-    "title": "you-should-use-renv",
-    "section": "set:",
-    "text": "set:\nposit public package manager (p3m)\noptions(repos = c(CRAN = \"https://p3m.dev/cran/latest\"))\noptions(\"repos\")"
-  },
-  {
-    "objectID": "workshop.html#set-statcan",
-    "href": "workshop.html#set-statcan",
-    "title": "you-should-use-renv",
-    "section": "set: StatCan",
-    "text": "set: StatCan\noptions(repos = c(artifactory = \"https://username:password@artifactory.ourinternalurl.ca/artifactory/cran-remote\"))"
-  },
-  {
-    "objectID": "workshop.html#fetch-examples",
-    "href": "workshop.html#fetch-examples",
-    "title": "you-should-use-renv",
-    "section": "fetch examples",
-    "text": "fetch examples\nusethis::use_zip(\"https://gitlab.com/edavidaja/renv-workshop/-/archive/main/renv-workshop-main.zip\")\nor\ngit clone https://gitlab.com/edavidaja/renv-workshop"
-  },
-  {
-    "objectID": "workshop.html#new-project",
-    "href": "workshop.html#new-project",
-    "title": "you-should-use-renv",
-    "section": "new project",
-    "text": "new project"
-  },
-  {
-    "objectID": "workshop.html#existing-project",
-    "href": "workshop.html#existing-project",
-    "title": "you-should-use-renv",
-    "section": "existing project",
-    "text": "existing project"
-  },
-  {
-    "objectID": "workshop.html#old-project",
-    "href": "workshop.html#old-project",
-    "title": "you-should-use-renv",
-    "section": "old project",
-    "text": "old project\nan old shiny app"
-  },
-  {
-    "objectID": "workshop.html#r-version-migration",
-    "href": "workshop.html#r-version-migration",
-    "title": "you-should-use-renv",
-    "section": "R version migration",
-    "text": "R version migration\nrig"
-  },
-  {
     "objectID": "index.html#we-have-a-standards-problem",
     "href": "index.html#we-have-a-standards-problem",
     "title": "you-should-use-renv",
@@ -306,5 +229,82 @@
     "title": "you-should-use-renv",
     "section": "we have an opportunity",
     "text": "we have an opportunity\nLet’s coalesce on a project standard.\n\nUse renv."
+  },
+  {
+    "objectID": "workshop.html#sermon",
+    "href": "workshop.html#sermon",
+    "title": "you-should-use-renv",
+    "section": "sermon",
+    "text": "sermon\nyou should use renv."
+  },
+  {
+    "objectID": "workshop.html#commandment",
+    "href": "workshop.html#commandment",
+    "title": "you-should-use-renv",
+    "section": "commandment",
+    "text": "commandment\nprojects should be reproducible.\n\nprojects, for the purpose of this workshop, are anything you want to share that isn’t an R package–shiny app, plumber API, quarto doc\nreproducibility is a layered, spectral concept rather than a binary\nthe goal is for the project to be reproducible to the maximum extent possible"
+  },
+  {
+    "objectID": "workshop.html#on-repositories",
+    "href": "workshop.html#on-repositories",
+    "title": "you-should-use-renv",
+    "section": "on repositories",
+    "text": "on repositories\nrenv: custom R package repositories"
+  },
+  {
+    "objectID": "workshop.html#get",
+    "href": "workshop.html#get",
+    "title": "you-should-use-renv",
+    "section": "get",
+    "text": "get\n&gt; options(\"repos\")\n$repos\n                                         CRAN \n\"https://packagemanager.posit.co/cran/latest\""
+  },
+  {
+    "objectID": "workshop.html#set",
+    "href": "workshop.html#set",
+    "title": "you-should-use-renv",
+    "section": "set:",
+    "text": "set:\nposit public package manager (p3m)\noptions(repos = c(CRAN = \"https://p3m.dev/cran/latest\"))\noptions(\"repos\")"
+  },
+  {
+    "objectID": "workshop.html#set-posit-package-manager",
+    "href": "workshop.html#set-posit-package-manager",
+    "title": "you-should-use-renv",
+    "section": "set: posit package manager",
+    "text": "set: posit package manager\noptions(repos = c(ppm = \"https://packagemanager.example.com/cran/__linux__/jammy/latest\"))"
+  },
+  {
+    "objectID": "workshop.html#fetch-examples",
+    "href": "workshop.html#fetch-examples",
+    "title": "you-should-use-renv",
+    "section": "fetch examples",
+    "text": "fetch examples\nusethis::use_zip(\"edavidaja/renv-workshop\")\nor\ngit clone https://gitlab.com/edavidaja/renv-workshop"
+  },
+  {
+    "objectID": "workshop.html#new-project",
+    "href": "workshop.html#new-project",
+    "title": "you-should-use-renv",
+    "section": "new project",
+    "text": "new project"
+  },
+  {
+    "objectID": "workshop.html#existing-project",
+    "href": "workshop.html#existing-project",
+    "title": "you-should-use-renv",
+    "section": "existing project",
+    "text": "existing project"
+  },
+  {
+    "objectID": "workshop.html#old-project",
+    "href": "workshop.html#old-project",
+    "title": "you-should-use-renv",
+    "section": "old project",
+    "text": "old project\nan old shiny app"
+  },
+  {
+    "objectID": "workshop.html#r-version-migration",
+    "href": "workshop.html#r-version-migration",
+    "title": "you-should-use-renv",
+    "section": "R version migration",
+    "text": "R version migration\nrig"
   }
 ]
